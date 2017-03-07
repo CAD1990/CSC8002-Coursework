@@ -1,7 +1,7 @@
 public class DriversLicence extends Licences
 {
-    public DriversLicence(String nameDriver, int dobDriver, String licenceDriver, boolean fullDriver, String dateOfIssue)
+    public DriversLicence(String nameDriver, int dobDriver, String licenceDriver, boolean fullDriver)
     {
-        super (nameDriver, dobDriver, licenceDriver, fullDriver, dateOfIssue);
+        super (nameDriver, dobDriver, licenceDriver, fullDriver);
     }
 }

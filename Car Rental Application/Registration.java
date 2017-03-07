@@ -1,10 +1,10 @@
 import java.util.HashMap;
 import java.util.Random;
 /**
- * Write a description of class Registration here.
+ * Car Reigstration Singleton
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Craig Dawson) 
+ * @version (7th March 2017)
  */
 public class Registration 
 {

@@ -1,4 +1,5 @@
-
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 /**
  * Abstract class Licence - write a description of the class here
  * 
@@ -11,18 +12,25 @@ public abstract class Licences implements Licence
     private int dobDriver;
     private String licenceDriver;
     private boolean fullDriver;
-    private String dateOfIssue;
- 
-    public Licences(String nameDriver, int dobDriver, String licenceDriver, boolean fullDriver, String dateOfIssue)
+    private final String dateOfIssue;
+    public Licences(String nameDriver, int dobDriver, String licenceDriver, boolean fullDriver)
     {
         this.nameDriver = nameDriver;
         this.dobDriver = dobDriver;
         this.licenceDriver = licenceDriver;
-        this.dateOfIssue = dateOfIssue;
         this.fullDriver = fullDriver;
-   
+        this.dateOfIssue = getDate();
     }
-
+    
+    private static String getDate()
+    {
+        Calendar rightNow = Calendar.getInstance();
+        rightNow.add(Calendar.DATE, 0);
+        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy 'at' hh:mm:ss aaa");
+        String date = format1.format(rightNow.getTime());
+        return date;
+    }
+    
     public String driversName()
     {
         return nameDriver;
