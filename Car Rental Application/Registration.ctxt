@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=number\ letter\ strRep
+comment0.target=Registration(int,\ char,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Registration\r\n
+comment1.params=
+comment1.target=Registration\ getInstance()
+comment2.params=
+comment2.target=char\ getLetter()
+comment3.params=
+comment3.target=int\ getNumbers()
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

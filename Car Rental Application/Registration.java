@@ -1,33 +1,54 @@
-
+import java.util.HashMap;
+import java.util.Random;
 /**
  * Write a description of class Registration here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Registration
+public class Registration 
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    private static final HashMap<String, Registration> reg = new HashMap<String, Registration>();
+    private final char letter;
+    private final int number;
+    private final String strRep;
     /**
      * Constructor for objects of class Registration
      */
-    public Registration()
+    private Registration(int number, char letter, String strRep)
     {
-        // initialise instance variables
-        x = 0;
+        this.number=number;
+        this.letter=letter;
+        this.strRep=strRep;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    public static final Registration getInstance()
     {
-        // put your code here
-        return x + y;
+        Random random = new Random();
+        int numbers = random.nextInt(1000)+1000;
+        Character letter = (char)(random.nextInt(26) + 'a');
+        String strRep = letter + "" + numbers;
+        Registration registration = reg.get(strRep);
+        if (registration == null)
+        {
+            registration = new Registration(numbers, letter, strRep);
+            reg.put(strRep, registration);
+        }
+        return registration;
+    }
+  
+    char getLetter()
+    {
+        return letter;
+    }
+    
+    int getNumbers()
+    {
+        return number;
+    }
+    
+    public String toString()
+    {
+        return strRep;
     }
 }
