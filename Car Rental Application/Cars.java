@@ -27,6 +27,11 @@ public abstract class Cars implements Car
         this.isRented = isRented;
     }
     
+    public boolean getTankFull()
+    {
+        return tankFull;
+    }
+
     public String getRegistration()
     {
         Registration reg = Registration.getInstance();
@@ -91,4 +96,6 @@ public abstract class Cars implements Car
             return false;
         }        
     }
+    
+   
 }
