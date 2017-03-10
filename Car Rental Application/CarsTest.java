@@ -56,9 +56,9 @@ public class CarsTest
     public void singletonString() throws Exception
     {
         smallCar smallCar1 = new smallCar();
-        assertNotNull(smallCar1.getRegistration());
+        assertNotNull(smallCar1.getReg());
         largeCar largeCar1 = new largeCar();
-        assertNotNull(largeCar1.getRegistration());
+        assertNotNull(largeCar1.getReg());
     }
 
     @Test

@@ -1,5 +1,8 @@
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  * Abstract class Licence - write a description of the class here
  * 
@@ -8,15 +11,19 @@ import java.text.SimpleDateFormat;
  */
 public abstract class Licences implements Licence
 {
-    private String nameDriver;
-    private int dobDriver;
+    private String firstName;
+    private String lastName;
+    private String fullName;
+    private String dobDriver;
     private String licenceDriver;
     private boolean fullDriver;
     private final String dateOfIssue;
-    public Licences(String nameDriver, int dobDriver, String licenceDriver, boolean fullDriver)
+    public Licences(String firstName, String lastName, String licenceDriver, boolean fullDriver)
     {
-        this.nameDriver = nameDriver;
-        this.dobDriver = dobDriver;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fullName = getFirstName() + " " + getLastName();
+        this.dobDriver = getDOB();
         this.licenceDriver = licenceDriver;
         this.fullDriver = fullDriver;
         this.dateOfIssue = getDate();
@@ -30,28 +37,48 @@ public abstract class Licences implements Licence
         String date = format1.format(rightNow.getTime());
         return date;
     }
-    
-    public String driversName()
+
+    public String getDOB()
     {
-        return nameDriver;
+        long start; 
+        start = Timestamp.valueOf("1972-01-01 00:00:00").getTime();
+        long end; 
+        end = Timestamp.valueOf("1996-12-31 00:58:00").getTime();
+        long difference = end - start +1;
+        long value = start + (long)(Math.random() * difference);
+        /// Format Block ///
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date (value);
+        String time = (dateFormat.format(date));
+        return time;
+    }
+    
+    public String getFirstName()
+    {
+        return firstName;
+    }
+    
+    public String getLastName()
+    {
+        return lastName;
     }
 
-    public int dateOfBirth()
+    public String getDateOfBirth()
     {
         return dobDriver;
     }
 
-    public String licenceNumber()
+    public String getLicenceNumber()
     {
         return licenceDriver;
     }
 
-    public String dateOfIssue()
+    public String getDateOfIssue()
     {
         return dateOfIssue;
     }
 
-    public boolean fullLicence()
+    public boolean getLicenceLevel()
     {
         return fullDriver;
     } 

@@ -1,12 +1,14 @@
 #BlueJ class context
 comment0.params=
-comment0.target=java.lang.String\ driversName()
+comment0.target=java.lang.String\ getFirstName()
 comment1.params=
-comment1.target=int\ dateOfBirth()
+comment1.target=java.lang.String\ getLastName()
 comment2.params=
-comment2.target=java.lang.String\ licenceNumber()
+comment2.target=java.lang.String\ getDateOfBirth()
 comment3.params=
-comment3.target=java.lang.String\ dateOfIssue()
+comment3.target=java.lang.String\ getLicenceNumber()
 comment4.params=
-comment4.target=boolean\ fullLicence()
-numComments=5
+comment4.target=java.lang.String\ getDateOfIssue()
+comment5.params=
+comment5.target=boolean\ getLicenceLevel()
+numComments=6

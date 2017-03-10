@@ -1,9 +1,16 @@
 
 public interface Licence
 {
-   public String driversName();
-   public int dateOfBirth();
-   public String licenceNumber();
-   public String dateOfIssue();
-   public boolean fullLicence(); 
+
+    public String getFirstName();
+
+    public String getLastName();
+
+    public String getDateOfBirth();
+
+    public String getLicenceNumber();
+
+    public String getDateOfIssue();
+
+    public boolean getLicenceLevel() ;
 }

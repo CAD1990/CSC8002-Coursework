@@ -5,7 +5,8 @@ public abstract class Cars implements Car
     private boolean tankFull;
     private boolean isRented;
     private String registrationNumber;
-    public Cars(int tankCapacity, int fuelAmount, boolean tankFull, boolean isRented) throws Exception
+    private int consumRate;
+    public Cars(int tankCapacity, int fuelAmount, boolean tankFull, boolean isRented, int consumRate) throws Exception
     {
         this.registrationNumber=getRegistration();
         this.tankCapacity = tankCapacity;
@@ -25,6 +26,12 @@ public abstract class Cars implements Car
         }
         this.tankFull = tankFull;
         this.isRented = isRented;
+        this.consumRate = consumRate;
+    }
+    
+    public int getConsumRate()
+    {
+        return consumRate;
     }
     
     public boolean getTankFull()
@@ -32,11 +39,21 @@ public abstract class Cars implements Car
         return tankFull;
     }
 
-    public String getRegistration()
+    private String getRegistration()
     {
         Registration reg = Registration.getInstance();
         String registration = reg.getLetter() + "" + reg.getNumbers();
         return registration;
+    }
+    
+    public String getReg()
+    {
+        return registrationNumber;
+    }
+    
+    public boolean isRented()
+    {
+        return isRented;
     }
     
     private final void capacityError()
@@ -52,6 +69,11 @@ public abstract class Cars implements Car
     public int getFuel()
     {
         return fuelAmount;
+    }
+    
+    public void setFuel(int amount)
+    {
+        fuelAmount = amount;
     }
 
     public void addFuel(int fuel) throws Exception
@@ -85,7 +107,7 @@ public abstract class Cars implements Car
         }
     }
 
-    private final boolean tankFull(int fuelAmount, int tankCapacity)
+    private boolean tankFull(int fuelAmount, int tankCapacity)
     {
         if (fuelAmount == tankCapacity)
         {
@@ -97,5 +119,17 @@ public abstract class Cars implements Car
         }        
     }
     
-   
+    public void driveCar(int kiloMeters)
+    {
+        if (isRented() == false && getFuel() > 0)
+        {  
+            int fuelUsed = kiloMeters/consumRate;
+            this.fuelAmount = fuelAmount-fuelUsed;
+            tankFull(this.fuelAmount, this.tankCapacity);
+        }
+        else
+        {
+            /// Car not rented provide message ///
+        }
+    }
 }
